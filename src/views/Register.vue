@@ -1,14 +1,14 @@
 <template>
-  <SignIn />
+  <RegisterC />
 </template>
 
 <script>
-import SignIn from "../components/SignIn";
+import RegisterC from "../components/RegisterC";
 
 export default {
-  name: "Login",
+  name: "Register",
   components: {
-    SignIn
+    RegisterC
   }
 };
 </script>
