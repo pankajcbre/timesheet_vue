@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from './../views/Home.vue'
+//import Home from './../views/Home.vue'
 import Dashboard from './../components/dashboard/dashboard.vue'
 import Task from './../components/task/task.vue'
 import HolidayList from './../components/holiday-list/holiday-list.vue'
@@ -13,40 +13,40 @@ import Register from '../views/Register.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-    path: '/',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/Register',
-    name: 'Register',
-    component: Register
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard
-  },
-  {
-    path: '/task',
-    name: 'Task',
-    component: Task
-  },
-  {
-    path: '/holiday-list',
-    name: 'HolidayList',
-    component: HolidayList
-  },
-  {
-    path: '/leave-plan',
-    name: 'LeavePlan',
-    component: LeavePlan
-  },
-  {
-    path: '/timesheet',
-    name: 'Timesheet',
-    component: Timesheet
-  },
+  path: '/',
+  name: 'Login',
+  component: Login
+},
+{
+  path: '/Register',
+  name: 'Register',
+  component: Register
+},
+{
+  path: '/dashboard',
+  name: 'Dashboard',
+  component: Dashboard
+},
+{
+  path: '/task',
+  name: 'Task',
+  component: Task
+},
+{
+  path: '/holiday-list',
+  name: 'HolidayList',
+  component: HolidayList
+},
+{
+  path: '/leave-plan',
+  name: 'LeavePlan',
+  component: LeavePlan
+},
+{
+  path: '/timesheet',
+  name: 'Timesheet',
+  component: Timesheet
+},
   // {
   //   path: '/about',
   //   name: 'About',

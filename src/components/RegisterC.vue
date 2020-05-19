@@ -43,14 +43,11 @@ export default {
   })
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .v-application {
   background: transparent !important;
 }
 body {
   background-color: red;
-  background-image: url("~@/assets/login_back.jpg");
-  background-clip: content-box;
-  background-size: cover;
 }
 </style>
