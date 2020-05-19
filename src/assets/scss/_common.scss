@@ -1,0 +1,28 @@
+body{
+    font-size: 12px;
+}
+
+.theme--light.v-application{
+    background-color: map-get($colors, backgroundColor);
+}
+a{
+    text-decoration: none;
+}
+
+.mainContainer{
+    padding: 0px;
+    display: flex;
+    min-height: calc(100vh - 64px);
+
+}
+
+.pages{
+    padding: 30px;
+    flex: 1;
+}
+.rightSidebar{
+    width:320px;
+    background-color: map-get($colors, whiteColor);
+    box-shadow: 0 0 4px rgba(0,0,0,0.15);
+    padding: 20px;
+}

@@ -1,0 +1,18 @@
+.v-application.theme--light{
+    header.theme--light.v-app-bar.v-toolbar.v-sheet{
+        background-color: map-get($colors, whiteColor); 
+        box-shadow: 0 0 4px rgba(0,0,0,0.15);
+
+        button.v-app-bar__nav-icon {
+            color: map-get($colors, lightcolor);
+        }
+        .v-toolbar__title{
+            text-transform: uppercase;
+            color: map-get($colors, lightcolor);
+            font-weight: 300;
+            strong{
+                font-weight: 700;
+            }
+        }
+    }
+}

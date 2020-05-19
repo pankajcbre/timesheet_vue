@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from './../views/Home.vue'
+import Dashboard from './../components/dashboard/dashboard.vue'
+import Task from './../components/task/task.vue'
+import HolidayList from './../components/holiday-list/holiday-list.vue'
+import LeavePlan from './../components/leave-plan/leave-plan.vue'
+import Timesheet from './../components/timesheet/timesheet.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Dashboard from '../views/Dashboard.vue'
+//import DashboardPankaj from '../views/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -17,18 +23,38 @@ const routes = [{
     component: Register
   },
   {
-    path: '/Dashboard',
+    path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import( /* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/task',
+    name: 'Task',
+    component: Task
+  },
+  {
+    path: '/holiday-list',
+    name: 'HolidayList',
+    component: HolidayList
+  },
+  {
+    path: '/leave-plan',
+    name: 'LeavePlan',
+    component: LeavePlan
+  },
+  {
+    path: '/timesheet',
+    name: 'Timesheet',
+    component: Timesheet
+  },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  // }
 ]
 
 const router = new VueRouter({
