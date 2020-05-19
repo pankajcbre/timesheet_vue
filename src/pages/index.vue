@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <SignIn />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <p>Pankaj Tiwari</p>
   </div>
 </template>
 
