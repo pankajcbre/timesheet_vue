@@ -4,12 +4,18 @@
     
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Manpower App</v-toolbar-title>
+      <v-toolbar-title><strong>MANPOWER</strong>TEMPLATE</v-toolbar-title>
     </v-app-bar>
  
   <v-content>
-    <v-container fluid>
-      <router-view></router-view>         
+    <v-container class="mainContainer" fluid>
+      <div class="pages">
+        <router-view></router-view>
+      </div><!--//pages-->
+       
+      <div class="rightSidebar">
+        <app-right-side></app-right-side>
+      </div>
     </v-container>
   </v-content>
   </v-app>
@@ -17,10 +23,12 @@
 
 <script>
   import LeftNavigation from './shared/leftNavigation.vue'; 
+  import RightSidebar from './shared/rightSidebar.vue'; 
 
   export default {
     components:{
       'app-left-nav' : LeftNavigation, 
+      'app-right-side' : RightSidebar
     },
     data(){
       return{
@@ -28,7 +36,7 @@
       }
     },
     methods:{ 
-      
+
     }
   };
 </script>

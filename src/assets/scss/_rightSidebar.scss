@@ -1,0 +1,81 @@
+.rightSideHead{
+    margin-bottom: 20px;
+    display: flex;
+    h2{
+        font-size: 16px;
+        color: map-get($colors, lightContColor);
+        margin: 0;
+        font-weight: 500;
+    }
+}
+
+.activitySeciton{
+    margin-bottom: 30px;
+    h3{
+        font-weight: normal;
+        color: map-get($colors, lightContColor);
+        font-size: 10px;
+        text-transform: uppercase;
+        margin: 0 0 15px;
+        position: relative;
+        span{
+            display: inline-block;
+            padding-right: 10px;
+            background-color: map-get($colors, whiteColor);
+            position: relative;
+            z-index: 1;
+        }
+        &::after{
+            content:'';
+            display: block;
+            border-bottom: map-get($colors , lightestGrey) solid 1px;
+            position: absolute;
+            top: 45%;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .v-timeline-item{
+        padding-bottom: 0;
+        margin-bottom: 15px;
+        .v-timeline-item__divider{
+            min-width: 38px;
+        }
+    }
+
+    .v-timeline{
+        padding: 0;
+    }
+
+    .v-timeline--dense .v-timeline-item__body{
+        max-width: calc(100% - 38px);
+        padding-left: 15px;
+        .col{
+            padding-top:0;
+            padding-bottom:0
+        }
+        h4{
+            font-size: 13px;
+            color: #748AA1;
+            font-weight: 400;
+        }
+        h5{
+            font-size: 11px;
+            color: #748AA1;
+            font-weight: 700;
+            margin: 0 0 5px;            
+        }
+        p{
+            font-size: 10px;
+            margin: 0;
+            color: #bbb;
+        }
+    }
+}
+
+
+        
+.v-application--is-ltr .v-timeline--dense:not(.v-timeline--reverse):before{
+    left: calc(20px - 1px);
+}

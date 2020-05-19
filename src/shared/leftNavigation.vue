@@ -1,7 +1,7 @@
 <template> 
     <v-navigation-drawer app clipped :mini-variant="drawerValue">
         <v-list dense>
-            <router-link to="/dashboard">
+            <router-link to="/dashboard" active-class="active">
                 <v-list-item>
                     <v-list-item-action>
                         <v-icon>mdi-view-dashboard</v-icon>
@@ -13,7 +13,7 @@
             </router-link>
 
 
-            <router-link to="/task">
+            <router-link to="/task" active-class="active">
                 <v-list-item>
                     <v-list-item-action>
                         <v-icon>mdi-note</v-icon>
@@ -24,7 +24,7 @@
                 </v-list-item>
             </router-link>
             
-            <router-link to="/holiday-list">
+            <router-link to="/holiday-list" active-class="active">
                 <v-list-item>
                     <v-list-item-action>
                         <v-icon>mdi-calendar</v-icon>
@@ -35,7 +35,7 @@
                 </v-list-item>
             </router-link>
             
-            <router-link to="/leave-plan">
+            <router-link to="/leave-plan" active-class="active">
                 <v-list-item>
                     <v-list-item-action>
                         <v-icon>mdi-calendar</v-icon>
@@ -46,7 +46,7 @@
                 </v-list-item>
             </router-link>
             
-            <router-link to="/timesheet">
+            <router-link to="/timesheet" active-class="active">
                 <v-list-item>
                     <v-list-item-action>
                         <v-icon>mdi-clock</v-icon>

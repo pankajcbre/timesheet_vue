@@ -1,5 +1,6 @@
 @import './variable';
 
-a{
-    text-decoration: none;
-}
+@import './common';
+@import './header';
+@import './leftNavigaiton';
+@import './rightSidebar';
