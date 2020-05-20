@@ -1,9 +1,7 @@
 <template>
-  <v-app>
-    <v-content>
-      <v-container>
-        <v-data-table :headers="headers" :items="items" sort-by class="elevation-1">
-          <!-- <template v-slot:top>
+  <v-container>
+    <v-data-table :headers="headers" :items="items" sort-by class="elevation-1">
+      <!-- <template v-slot:top>
             <v-toolbar flat color="white">
               <v-spacer></v-spacer>
               <v-dialog v-model="dialog" max-width="500px">
@@ -47,59 +45,57 @@
                 </v-card>
               </v-dialog>
             </v-toolbar>
-          </template>-->
-          <template></template>
+      </template>-->
+      <template></template>
 
-          <template v-slot:item.assignmenttype="props">
-            <v-select
-              :items="assignmenttype"
-              v-model="props.item.assignmenttype"
-              label="Assignment Type"
-              dense
-              outlined
-            ></v-select>
-          </template>
-          <template v-slot:item.assignmentsubtype="props">
-            <v-select
-              :items="assignmentsubtype"
-              v-model="props.item.assignmenttype"
-              label="Assignment Sub Type"
-              dense
-              outlined
-            ></v-select>
-          </template>
-          <template v-slot:item.tasktype="props">
-            <v-select
-              :items="tasktype"
-              v-model="props.item.assignmenttype"
-              label="Assignment Sub Type"
-              dense
-              outlined
-            ></v-select>
-          </template>
-          <template v-slot:item.role="props">
-            <v-select
-              :items="role"
-              v-model="props.item.assignmenttype"
-              label="Assignment Sub Type"
-              dense
-              outlined
-            ></v-select>
-          </template>
-          <template v-slot:item.startendtime="props">
-            <v-text-field v-model="props.item.startendtime"></v-text-field>
-          </template>
-          <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize">Reset</v-btn>
-          </template>
-          <template v-slot:item.actions="{item}">
-            <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
-            <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
-          </template>
-        </v-data-table>
-      </v-container>
-    </v-content>
-  </v-app>
+      <template v-slot:item.assignmenttype="props">
+        <v-select
+          :items="assignmenttype"
+          v-model="props.item.assignmenttype"
+          label="Assignment Type"
+          dense
+          outlined
+        ></v-select>
+      </template>
+      <template v-slot:item.assignmentsubtype="props">
+        <v-select
+          :items="assignmentsubtype"
+          v-model="props.item.assignmenttype"
+          label="Assignment Sub Type"
+          dense
+          outlined
+        ></v-select>
+      </template>
+      <template v-slot:item.tasktype="props">
+        <v-select
+          :items="tasktype"
+          v-model="props.item.assignmenttype"
+          label="Assignment Sub Type"
+          dense
+          outlined
+        ></v-select>
+      </template>
+      <template v-slot:item.role="props">
+        <v-select
+          :items="role"
+          v-model="props.item.assignmenttype"
+          label="Assignment Sub Type"
+          dense
+          outlined
+        ></v-select>
+      </template>
+      <template v-slot:item.startendtime="props">
+        <v-text-field v-model="props.item.startendtime"></v-text-field>
+      </template>
+      <template v-slot:no-data>
+        <v-btn color="primary" @click="initialize">Reset</v-btn>
+      </template>
+      <template v-slot:item.actions="{item}">
+        <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+        <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
+      </template>
+    </v-data-table>
+  </v-container>
 </template>
 
 <script>
