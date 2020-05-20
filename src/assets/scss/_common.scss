@@ -4,11 +4,7 @@ body{
 
 .theme--light.v-application{
     background-color: map-get($colors, backgroundColor);
-}
-a{
-    text-decoration: none;
-}
-
+} 
 .mainContainer{
     padding: 0px;
     display: flex;

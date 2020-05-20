@@ -4,8 +4,7 @@
     .theme--light{
         background-color: transparent;
     }
-    a{
-        display: block;
+    a{ 
         .v-list-item__action{
             .theme--light{
                 color:map-get($colors, lightcolor); 
