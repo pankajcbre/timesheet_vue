@@ -242,14 +242,6 @@ export default {
         return item;
       });
       this.items = items;
-    },
-    getTime({ start, end }) {
-      const min = new Date(`${start.date}T00:00:00`);
-      const max = new Date(`${end.date}T23:59:59`);
-      //const times = [];
-      //const hours = max.getTime() - min.getTime();
-      hours;
-      console.log(hours);
     }
   }
 };
