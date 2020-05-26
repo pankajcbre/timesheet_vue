@@ -1,0 +1,37 @@
+.v-navigation-drawer__content{
+    background-color: map-get($colors, whiteColor); 
+
+    .theme--light{
+        background-color: transparent;
+    }
+    a{ 
+        .v-list-item__action{
+            .theme--light{
+                color:map-get($colors, lightcolor); 
+            }
+        }
+        .v-list-item__content{
+            color:map-get($colors, mediumGrey); 
+        }
+        
+        &:hover{
+            background-color: #f9f9f9;
+        }
+        &.active{
+            background-color: map-get($colors, greenColor);
+            color:map-get($colors, whiteColor); 
+            .v-list-item__content{
+                color:map-get($colors, whiteColor); 
+            }
+            .v-list-item__action{
+                .theme--light{
+                    color:map-get($colors, whiteColor); 
+                }
+            }
+        }
+    }
+}
+
+.v-list-item--dense, .v-list--dense .v-list-item{
+    min-height: 60px;
+}
