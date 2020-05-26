@@ -1,42 +1,72 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <router-link to="/">
-          <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2"
-            contain
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-            transition="scale-transition"
-            width="40"
-          />
-        </router-link>
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    <app-left-nav :drawerValue="drawer"></app-left-nav>
 
-      <v-spacer></v-spacer>
+    <v-app-bar app clipped-left>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>
+        <strong>MANPOWER</strong>TEMPLATE
+      </v-toolbar-title>
     </v-app-bar>
 
     <v-content>
-      <router-view />
+      <v-container class="mainContainer" fluid>
+        <div class="pages">
+          <router-view @deleteItem="deleteItem" @close="close" @save="save" @editItem="editItem"></router-view>
+        </div>
+        <!--//pages-->
+
+        <div class="rightSidebar">
+          <app-right-side></app-right-side>
+        </div>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-export default {
-  name: "App",
+import LeftNavigation from "./shared/leftNavigation.vue";
+import RightSidebar from "./shared/rightSidebar.vue";
 
-  data: () => ({
-    //
-  })
+export default {
+  components: {
+    "app-left-nav": LeftNavigation,
+    "app-right-side": RightSidebar
+  },
+  data() {
+    return {
+      drawer: true
+    };
+  },
+  methods: {
+    editItem(item) {
+      this.editedIndex = this.tasklists.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+
+    deleteItem(item) {
+      const index = this.tasklists.indexOf(item);
+      confirm("Are you sure you want to delete this item?") &&
+        this.tasklists.splice(index, 1);
+    },
+
+    close() {
+      this.dialog = false;
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      });
+    },
+
+    save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.tasklists[this.editedIndex], this.editedItem);
+      } else {
+        this.tasklists.push(this.editedItem);
+      }
+      this.close();
+    }
+  }
 };
 </script>
