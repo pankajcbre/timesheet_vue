@@ -90,6 +90,48 @@
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize">Reset</v-btn>
       </template>
+      <template v-slot:item.startendtime>
+        <!-- {{item.time}} -->
+        <v-dialog
+          ref="dialog"
+          class="bg-theme-white px-4 py-3"
+          v-model="modal2"
+          :return-value.sync="getTime"
+          persistent
+          width="750px"
+        >
+          <template v-slot:activator="{ on }">
+            <v-text-field
+              v-model="start"
+              label="Picker in dialog"
+              append-icon="mdi-timer"
+              readonly
+              v-on="on"
+            ></v-text-field>
+          </template>
+          <div v-if="modal2" full-width style="background:#fff;" class="px-4 py-3">
+            <h1>Plan your Tak Hours:</h1>
+            <v-row justify="space-around" align="center">
+              <v-col>
+                <h2>Start:</h2>
+                <v-time-picker v-model="start" :max="end"></v-time-picker>
+              </v-col>
+              <v-col>
+                <h2>End:</h2>
+                <v-time-picker v-model="end" :min="start"></v-time-picker>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-spacer></v-spacer>
+                <v-btn text color="primary" @click="modal2 = false">Cancel</v-btn>
+                <v-btn text color="primary" @click="$refs.dialog.save(time)">OK</v-btn>
+              </v-col>
+            </v-row>
+          </div>
+        </v-dialog>
+        <!-- <v-icon @click="stopWatch(item)">mdi-timer</v-icon> -->
+      </template>
       <template v-slot:item.actions="{item}">
         <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
         <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
@@ -99,11 +141,13 @@
 </template>
 
 <script>
-// Looking for the v1.5 template?
-// https://codepen.io/johnjleider/pen/GVoaNe
-
 export default {
   data: () => ({
+    menu2: false,
+    modal2: false,
+    start: [],
+    end: null,
+    time: null,
     assignmenttype: [
       "select option 1",
       "select option 2",
@@ -130,7 +174,7 @@ export default {
     ],
     items: [],
     headers: [
-      { text: "PROJECT", value: "project" },
+      { text: "PROJECT", value: "projectname" },
       { text: "ASSIGNMENT TYPE", value: "assignmenttype" },
       { text: "ASSIGNMENT SUB TYPE", value: "assignmentsubtype" },
       { text: "TASK TYPE", value: "tasktype" },
@@ -148,7 +192,8 @@ export default {
           assignmentsubtype: "",
           tasktype: "",
           role: "",
-          startendtime: ""
+          startendtime: "",
+          time: "9:30 - 12:30"
         },
         {
           projectname: "Business Development Opportunities",
@@ -156,7 +201,8 @@ export default {
           assignmentSubType: "",
           taskType: "",
           role: "",
-          startEndTime: ""
+          startEndTime: "",
+          time: "9:30 - 12:30"
         },
         {
           projectname: "Business Development & Opportunities",
@@ -164,7 +210,8 @@ export default {
           assignmentSubType: "",
           taskType: "",
           role: "",
-          startEndTime: ""
+          startEndTime: "",
+          time: "11:30 - 12:30"
         }
       ]
     }
@@ -195,6 +242,14 @@ export default {
         return item;
       });
       this.items = items;
+    },
+    getTime({ start, end }) {
+      const min = new Date(`${start.date}T00:00:00`);
+      const max = new Date(`${end.date}T23:59:59`);
+      //const times = [];
+      //const hours = max.getTime() - min.getTime();
+      hours;
+      console.log(hours);
     }
   }
 };
