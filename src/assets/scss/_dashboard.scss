@@ -1,0 +1,63 @@
+.whiteBox{
+    background-color: map-get($colors , whiteColor);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    h2{
+        font-size: 20px;
+        color: map-get($colors, lightContColor);
+        font-weight: 700;
+        margin: 0 0 5px;
+    }
+}
+
+.countArticles{
+    background-color: map-get($colors , whiteColor);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    .countArtText{
+        flex: 1;
+        padding-right: 20px;
+        h2{
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #B8C5D3;
+            font-size: 12px;
+            margin: 0 0 8px;
+        }
+        p{
+            font-size: 32px;
+            line-height: 32px;
+            font-weight: 500;
+            color: #8699AD;
+            margin: 0;
+        }
+
+    }
+    .countArtIcon{
+        width: 72px;
+        height: 72px;
+        flex-shrink: 0;
+        border:#B8C5D3 solid 1px;
+        background-color: #F8F9FB;
+        border-radius: 100%;
+        
+    }
+}
+
+.taskVelArticle{
+    background-color: map-get($colors , whiteColor);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    h2{
+        font-size: 20px;
+        color: map-get($colors, lightContColor);
+        font-weight: 700;
+        margin: 0 0 5px;
+    }
+
+}
