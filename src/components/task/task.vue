@@ -45,7 +45,11 @@
             <v-icon v-on="on" small>mdi-dots-vertical</v-icon>
           </template>
           <v-list>
-            <v-list-item v-for="(item, index) in items2" :key="index" @click="abc">
+            <v-list-item
+              v-for="(item, index) in items2"
+              :key="index"
+              @click="abc"
+            >
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item>
           </v-list>
@@ -60,75 +64,75 @@ export default {
   data() {
     return {
       headers: [
-        { text: "PROJECT TITLE", value: "projectname" },
-        { text: "TASK TYPE", value: "tasktype" },
-        { text: "ASSIGNMENT TYPE", value: "assignmenttype" },
-        { text: "SUB TYPE", value: "subtype" },
-        { text: "ROLE", value: "role" },
-        { text: "HRS SPENT", value: "hrsspent" },
-        { text: "STATUS", value: "status" },
-        { text: "DEADLINE", value: "deadline" },
-        { text: "", value: "actions", sortable: false }
+        { text: 'PROJECT TITLE', value: 'projectname' },
+        { text: 'TASK TYPE', value: 'tasktype' },
+        { text: 'ASSIGNMENT TYPE', value: 'assignmenttype' },
+        { text: 'SUB TYPE', value: 'subtype' },
+        { text: 'ROLE', value: 'role' },
+        { text: 'HRS SPENT', value: 'hrsspent' },
+        { text: 'STATUS', value: 'status' },
+        { text: 'DEADLINE', value: 'deadline' },
+        { text: '', value: 'actions', sortable: false },
       ],
       items: [
         {
-          projectname: "Business Development & Opportunities",
-          tasktype: "Proposal/Pitch",
-          assignmenttype: "Core_Consulting",
-          subtype: "Country & City Level Assessment",
-          role: "Role 01",
-          hrsspent: "0hrs",
-          status: "Active",
-          deadline: "12/05/2020"
+          projectname: 'Business Development & Opportunities',
+          tasktype: 'Proposal/Pitch',
+          assignmenttype: 'Core_Consulting',
+          subtype: 'Country & City Level Assessment',
+          role: 'Role 01',
+          hrsspent: '0hrs',
+          status: 'Active',
+          deadline: '12/05/2020',
         },
         {
-          projectname: "Business Development & Opportunities",
-          tasktype: "Proposal/Pitch",
-          assignmenttype: "Core_Consulting",
-          subtype: "Country & City Level Assessment",
-          role: "Role 01",
-          hrsspent: "0hrs",
-          status: "Active",
-          deadline: "12/05/2020"
+          projectname: 'Business Development & Opportunities',
+          tasktype: 'Proposal/Pitch',
+          assignmenttype: 'Core_Consulting',
+          subtype: 'Country & City Level Assessment',
+          role: 'Role 01',
+          hrsspent: '0hrs',
+          status: 'Active',
+          deadline: '12/05/2020',
         },
         {
-          projectname: "Business Development & Opportunities",
-          tasktype: "Proposal/Pitch",
-          assignmenttype: "Core_Consulting",
-          subtype: "Country & City Level Assessment",
-          role: "Role 01",
-          hrsspent: "0hrs",
-          status: "Active",
-          deadline: "12/05/2020"
+          projectname: 'Business Development & Opportunities',
+          tasktype: 'Proposal/Pitch',
+          assignmenttype: 'Core_Consulting',
+          subtype: 'Country & City Level Assessment',
+          role: 'Role 01',
+          hrsspent: '0hrs',
+          status: 'Active',
+          deadline: '12/05/2020',
         },
         {
-          projectname: "Business Development & Opportunities",
-          tasktype: "Proposal/Pitch",
-          assignmenttype: "Core_Consulting",
-          subtype: "Country & City Level Assessment",
-          role: "Role 01",
-          hrsspent: "0hrs",
-          status: "Active",
-          deadline: "12/05/2020"
+          projectname: 'Business Development & Opportunities',
+          tasktype: 'Proposal/Pitch',
+          assignmenttype: 'Core_Consulting',
+          subtype: 'Country & City Level Assessment',
+          role: 'Role 01',
+          hrsspent: '0hrs',
+          status: 'Active',
+          deadline: '12/05/2020',
         },
         {
-          projectname: "Business Development & Opportunities",
-          tasktype: "Proposal/Pitch",
-          assignmenttype: "Core_Consulting",
-          subtype: "Country & City Level Assessment",
-          role: "Role 01",
-          hrsspent: "0hrs",
-          status: "Active",
-          deadline: "12/05/2020"
-        }
+          projectname: 'Business Development & Opportunities',
+          tasktype: 'Proposal/Pitch',
+          assignmenttype: 'Core_Consulting',
+          subtype: 'Country & City Level Assessment',
+          role: 'Role 01',
+          hrsspent: '0hrs',
+          status: 'Active',
+          deadline: '12/05/2020',
+        },
       ],
       items2: [
-        { title: "Edit" },
-        { title: "Delete" },
-        { title: "Update" },
-        { title: "Add" }
-      ]
+        { title: 'Edit' },
+        { title: 'Delete' },
+        { title: 'Update' },
+        { title: 'Add' },
+      ],
     };
-  }
+  },
 };
 </script>
