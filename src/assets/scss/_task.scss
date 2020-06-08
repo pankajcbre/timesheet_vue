@@ -1,0 +1,31 @@
+.hdng_1 {
+  background: #fff;
+  padding: 10px 0 10px 15px;
+  color: #93a1b1;
+}
+
+.right_list {
+  .v-list {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    .v-list-item {
+      display: inherit;
+      flex: auto;
+      justify-content: flex-end;
+      padding: 0 0 0 15px;
+      .v-list-item__content {
+        flex: initial;
+      }
+      .v-list-item__icon {
+        align-self: auto;
+        background: #fff;
+        margin-left: 8px !important;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 0;
+      }
+    }
+  }
+}
