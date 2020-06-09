@@ -5,14 +5,14 @@ import vuetify from './plugins/vuetify'
 import VueTextareaAutosize from 'vue-textarea-autosize'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-import store from '@/store/index';
+import store from '@/store/index'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
 import './assets/scss/style.scss'
 
-Vue.use(VueTextareaAutosize);
-Vue.use(VueMoment, {
+
+Vue.use(VueTextareaAutosize, VueMoment, {
   moment,
 });
 Vue.config.productionTip = false
