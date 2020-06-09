@@ -31,7 +31,7 @@
                 data: [50, 60, 30, 65, 40, 70, 60]
                 }
             ]
-            }, {responsive: true, maintainAspectRatio: false})
+            }, {responsive: true, maintainAspectRatio: false, legend:false})
         }
     
     })
