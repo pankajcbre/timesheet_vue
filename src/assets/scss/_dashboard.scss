@@ -41,9 +41,17 @@
         width: 72px;
         height: 72px;
         flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border:#B8C5D3 solid 1px;
         background-color: #F8F9FB;
         border-radius: 100%;
+        img{
+            max-width: 25px;
+            max-height: 25px;
+            display: block;
+        }
         
     }
 }
@@ -59,5 +67,108 @@
         font-weight: 700;
         margin: 0 0 5px;
     }
+}
 
+.taskLabels{
+    display: flex;
+    align-items: center;
+    ul{
+            width:100%;
+        margin: 0;
+        padding: 0!important;
+        padding-right: 40px!important;
+        li{
+            list-style: none;
+            padding:0 30px 0 25px;
+            position: relative;
+            margin: 10px 0;
+            font-size: 13px;
+            color: #8699AD;
+            span{
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            &::after{
+                width: 15px;
+                height: 15px;
+                content:'';
+                display: block;
+                border:#8699AD solid 3px;
+                border-radius: 100%;
+                position: absolute;
+                top: 1px;
+                left: 0;
+            }
+            &.done::after{
+                border-color:#8699AD;
+            }
+            &.reOpen::after{
+                border-color:#B8C6D5;
+            }
+            &.inProgress::after{
+                border-color:#D3DCE5;
+            }
+            &.onHold::after{
+                border-color:#EFEFF7;
+            }
+        }
+    }    
+}
+
+.hoursLabels{
+    margin: 15px 0 20px;
+    span{
+        display: inline-block;
+        position: relative;
+        margin-right: 20px;
+        color: #4D4F5C;
+        padding-left: 25px;
+        &::before{
+            width: 18px;
+            height: 10px;
+            content:'';
+            display: block;
+            background:#BCC8D5;
+            border-radius:5px;
+            position: absolute;
+            top: 3px;
+            left: 0;
+        }
+        &.planned::before{
+            background: #F0F2F8;
+        }
+    }
+}
+
+.velocityTaskBox{
+    background-color: #F5F6FA;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.teamSection{
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+
+    .teamBox{
+        display: flex;
+        align-items: center;
+        .teamPic{
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            border-radius: 100%;
+            img{
+                width: 100%;
+            }
+        }
+        .teamText{
+            padding-left: 10px;
+            
+        }
+    }
 }
