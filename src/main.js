@@ -5,10 +5,16 @@ import vuetify from './plugins/vuetify'
 import VueTextareaAutosize from 'vue-textarea-autosize'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import store from '@/store/index';
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
 
 import './assets/scss/style.scss'
 
 Vue.use(VueTextareaAutosize);
+Vue.use(VueMoment, {
+  moment,
+});
 Vue.config.productionTip = false
 
 firebase.initializeApp({
@@ -26,6 +32,7 @@ export const db = firebase.firestore();
 
 new Vue({
   router,
+  store,
   vuetify,
   render: h => h(App)
 }).$mount('#app')

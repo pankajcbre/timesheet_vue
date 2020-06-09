@@ -11,6 +11,7 @@
           <v-btn fab text small @click="next">
             <v-icon small>mdi-chevron-right</v-icon>
           </v-btn>
+
           <v-toolbar-title>{{ title }}</v-toolbar-title>
           <div class="flex-grow-1"></div>
           <v-menu bottom right>
@@ -42,33 +43,10 @@
         <v-card>
           <v-container>
             <v-form @submit.prevent="addEvent">
-              <v-text-field v-model="leaveType" type="text" label="Leave Type (required)"></v-text-field>
-              <v-text-field v-model="description" type="text" label="description"></v-text-field>
-              <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
-
-              <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
-              <v-text-field v-model="icons" type="text" label="icons (required)"></v-text-field>
-              <v-text-field v-model="color" type="color" label="color (click to open color menu)"></v-text-field>
-              <v-btn
-                type="submit"
-                color="primary"
-                class="mr-4"
-                @click.stop="dialog = false"
-              >create event</v-btn>
-            </v-form>
-          </v-container>
-        </v-card>
-      </v-dialog>
-
-      <v-dialog v-model="dialogDate" max-width="500">
-        <v-card>
-          <v-container>
-            <v-form @submit.prevent="addEvent">
-              <v-text-field v-model="leaveType" type="text" label="Leave Type (required)"></v-text-field>
-              <v-text-field v-model="description" type="text" label="detail"></v-text-field>
+              <v-text-field v-model="name" type="text" label="event name (required)"></v-text-field>
+              <v-text-field v-model="details" type="text" label="detail"></v-text-field>
               <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
               <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
-              <v-text-field v-model="icons" type="text" label="icons (required)"></v-text-field>
               <v-text-field v-model="color" type="color" label="color (click to open color menu)"></v-text-field>
               <v-btn
                 type="submit"
@@ -87,22 +65,15 @@
           v-model="focus"
           color="primary"
           :events="events"
-          :events-icons="events.icons"
           :event-color="getEventColor"
           :event-margin-bottom="3"
           :now="today"
           :type="type"
           @click:event="showEvent"
           @click:more="viewDay"
-          @click:date="setDialogDate"
+          @click:date="viewDay"
           @change="updateRange"
-          height="100%"
-        >
-          <template v-slot:event="{ event }">
-            <v-icon color="white" small>{{ event.icons }}</v-icon>
-            {{ event.leaveType }}
-          </template>
-        </v-calendar>
+        ></v-calendar>
         <v-menu
           v-model="selectedOpen"
           :close-on-content-click="false"
@@ -110,20 +81,19 @@
           full-width
           offset-x
         >
-          <v-card color="grey lighten-4" :width="350" flat>
+          <v-card color="grey lighten-4" min-width="350px" flat>
             <v-toolbar :color="selectedEvent.color" dark>
               <v-btn @click="deleteEvent(selectedEvent.id)" icon>
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
-              <v-toolbar-title v-html="selectedEvent.leaveType"></v-toolbar-title>
+              <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
               <div class="flex-grow-1"></div>
             </v-toolbar>
-
             <v-card-text>
-              <form v-if="currentlyEditing !== selectedEvent.id">{{ selectedEvent.description }}</form>
+              <form v-if="currentlyEditing !== selectedEvent.id">{{ selectedEvent.details }}</form>
               <form v-else>
                 <textarea-autosize
-                  v-model="selectedEvent.description"
+                  v-model="selectedEvent.details"
                   type="text"
                   style="width: 100%"
                   :min-height="100"
@@ -131,7 +101,6 @@
                 ></textarea-autosize>
               </form>
             </v-card-text>
-
             <v-card-actions>
               <v-btn text color="secondary" @click="selectedOpen = false">close</v-btn>
               <v-btn
@@ -150,11 +119,9 @@
 
 <script>
 import { db } from "@/main";
-//import VueMoment from "vue-moment";
-//import moment from "moment-timezone";
+import { mapState } from "vuex";
 export default {
   data: () => ({
-    now_date: Date.now(),
     today: new Date().toISOString().substr(0, 10),
     focus: new Date().toISOString().substr(0, 10),
     type: "month",
@@ -164,24 +131,22 @@ export default {
       day: "Day",
       "4day": "4 Days"
     },
-    leaveType: null,
-    description: null,
+    name: null,
+    details: null,
     start: null,
     end: null,
-    icons: "delete",
     color: "#1976D2", // default event color
     currentlyEditing: null,
     selectedEvent: {},
     selectedElement: null,
     selectedOpen: false,
-    events: [],
-    dialog: false,
-    dialogDate: false
+    dialog: false
   }),
   mounted() {
     this.getEvents();
   },
   computed: {
+    ...mapState(["events"]),
     title() {
       const { start, end } = this;
       if (!start || !end) {
@@ -213,16 +178,10 @@ export default {
       });
     }
   },
+
   methods: {
     async getEvents() {
-      let snapshot = await db.collection("LMS").get();
-      const events = [];
-      snapshot.forEach(doc => {
-        let appData = doc.data();
-        appData.id = doc.id;
-        events.push(appData);
-      });
-      this.events = events;
+      this.$store.dispatch("setEvents");
     },
     setDialogDate({ date }) {
       this.dialogDate = true;
@@ -245,27 +204,22 @@ export default {
       this.$refs.calendar.next();
     },
     async addEvent() {
-      this.start = new Date(this.start).toISOString().substring(0, 10);
-      this.end = new Date(this.end).toISOString().substring(0, 10);
-
-      if (this.leaveType && this.start && this.end) {
-        await db.collection("LMS").add({
-          leaveType: this.leaveType,
-          description: this.description,
+      if (this.name && this.start && this.end) {
+        await db.collection("calEvent").add({
+          name: this.name,
+          details: this.details,
           start: this.start,
           end: this.end,
-          icons: this.icons,
           color: this.color
         });
         this.getEvents();
-        (this.leaveType = ""),
-          (this.description = ""),
+        (this.name = ""),
+          (this.details = ""),
           (this.start = ""),
           (this.end = ""),
-          (this.icons = ""),
           (this.color = "");
       } else {
-        alert("You must enter Leave Type, start, and end time");
+        alert("You must enter event name, start, and end time");
       }
     },
     editEvent(ev) {
@@ -273,19 +227,22 @@ export default {
     },
     async updateEvent(ev) {
       await db
-        .collection("LMS")
+        .collection("calEvent")
         .doc(this.currentlyEditing)
         .update({
-          description: ev.description
+          details: ev.details
         });
-      (this.selectedOpen = false), (this.currentlyEditing = null);
+      this.selectedOpen = false;
+      this.currentlyEditing = null;
+      this.getEvents();
     },
     async deleteEvent(ev) {
       await db
-        .collection("LMS")
+        .collection("calEvent")
         .doc(ev)
         .delete();
-      (this.selectedOpen = false), this.getEvents();
+      this.selectedOpen = false;
+      this.getEvents();
     },
     showEvent({ nativeEvent, event }) {
       const open = () => {

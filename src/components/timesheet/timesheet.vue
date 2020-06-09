@@ -92,11 +92,11 @@
       </template>
       <template v-slot:item.startendtime>
         <!-- {{item.time}} -->
+        <!-- :return-value.sync="getTime" -->
         <v-dialog
           ref="dialog"
           class="bg-theme-white px-4 py-3"
           v-model="modal2"
-          :return-value.sync="getTime"
           persistent
           width="750px"
         >
