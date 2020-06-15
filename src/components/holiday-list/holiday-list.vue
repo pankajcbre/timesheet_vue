@@ -41,30 +41,22 @@
     <br />
     <v-row class="month_cards">
       <v-col class="col-md-3" v-for="month in months" :key="month.title">
-        <v-card class="mx-auto">
+        <v-card class="mx-auto holiday__card">
           <h4>{{ month.monthName }}</h4>
           <v-divider></v-divider>
           <v-list>
-            <v-list-item
-              v-for="FestiveList in month.FestiveLists"
-              :key="FestiveList.title"
-            >
+            <v-list-item v-for="FestiveList in month.FestiveLists" :key="FestiveList.title">
               <v-list-item-content>
                 <b>{{ FestiveList.festiveDate }}</b>
               </v-list-item-content>
 
               <v-list-item-content>
-                <v-list-item-title
-                  v-text="FestiveList.festiveName"
-                ></v-list-item-title>
+                <v-list-item-title v-text="FestiveList.festiveName"></v-list-item-title>
               </v-list-item-content>
 
               <v-list-item-action>
                 <v-btn icon>
-                  <v-icon
-                    color="grey lighten-1"
-                    v-text="FestiveList.festiveIcon"
-                  ></v-icon>
+                  <v-icon color="grey lighten-1" v-text="FestiveList.festiveIcon"></v-icon>
                 </v-btn>
               </v-list-item-action>
             </v-list-item>
@@ -81,177 +73,249 @@ export default {
     return {
       show: false,
       states: [
-        'Alabama',
-        'Alaska',
-        'American Samoa',
-        'Arizona',
-        'Arkansas',
-        'California',
-        'Colorado',
-        'Connecticut',
-        'Delaware',
-        'District of Columbia',
-        'Federated States of Micronesia',
-        'Florida',
-        'Georgia',
-        'Guam',
-        'Hawaii',
-        'Idaho',
-        'Illinois',
-        'Indiana',
-        'Iowa',
-        'Kansas',
-        'Kentucky',
-        'Louisiana',
-        'Maine',
-        'Marshall Islands',
-        'Maryland',
-        'Massachusetts',
-        'Michigan',
-        'Minnesota',
-        'Mississippi',
-        'Missouri',
-        'Montana',
-        'Nebraska',
-        'Nevada',
-        'New Hampshire',
-        'New Jersey',
-        'New Mexico',
-        'New York',
-        'North Carolina',
-        'North Dakota',
-        'Northern Mariana Islands',
-        'Ohio',
-        'Oklahoma',
-        'Oregon',
-        'Palau',
-        'Pennsylvania',
-        'Puerto Rico',
-        'Rhode Island',
-        'South Carolina',
-        'South Dakota',
-        'Tennessee',
-        'Texas',
-        'Utah',
-        'Vermont',
-        'Virgin Island',
-        'Virginia',
-        'Washington',
-        'West Virginia',
-        'Wisconsin',
-        'Wyoming',
+        "Alabama",
+        "Alaska",
+        "American Samoa",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "District of Columbia",
+        "Federated States of Micronesia",
+        "Florida",
+        "Georgia",
+        "Guam",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Marshall Islands",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Northern Mariana Islands",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Palau",
+        "Pennsylvania",
+        "Puerto Rico",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virgin Island",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
       ],
       months: [
         {
-          monthName: 'January',
+          monthName: "January",
           FestiveLists: [
             {
-              festiveDate: '01',
-              festiveName: 'New Year',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "01",
+              festiveName: "New Year",
+              festiveIcon: "mdi-flag"
             },
             {
-              festiveDate: '14',
-              festiveName: 'Makar Sankranti',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "14",
+              festiveName: "Makar Sankranti",
+              festiveIcon: "mdi-flag"
             },
             {
-              festiveDate: '26',
-              festiveName: 'Republic Day',
-              festiveIcon: 'mdi-flag',
-            },
-          ],
+              festiveDate: "26",
+              festiveName: "Republic Day",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'February',
+          monthName: "February",
           FestiveLists: [
             {
-              festiveDate: '02',
-              festiveName: 'Maha Shivratri',
-              festiveIcon: 'mdi-flag',
-            },
-          ],
+              festiveDate: "02",
+              festiveName: "Maha Shivratri",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'March',
+          monthName: "March",
           FestiveLists: [
             {
-              festiveDate: '10',
-              festiveName: 'Holi',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "10",
+              festiveName: "Holi",
+              festiveIcon: "mdi-flag"
             },
             {
-              festiveDate: '22',
-              festiveName: 'Gudipadava',
-              festiveIcon: 'mdi-flag',
-            },
-          ],
+              festiveDate: "22",
+              festiveName: "Gudipadava",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'april',
+          monthName: "april",
           FestiveLists: [
             {
-              festiveDate: '02',
-              festiveName: 'Ram Navami',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "02",
+              festiveName: "Ram Navami",
+              festiveIcon: "mdi-flag"
             },
             {
-              festiveDate: '10',
-              festiveName: 'Good Friday',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "10",
+              festiveName: "Good Friday",
+              festiveIcon: "mdi-flag"
             },
             {
-              festiveDate: '13',
-              festiveName: 'Baisakh',
-              festiveIcon: 'mdi-flag',
-            },
-          ],
+              festiveDate: "13",
+              festiveName: "Baisakh",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'May',
+          monthName: "May",
           FestiveLists: [
             {
-              festiveDate: '01',
-              festiveName: 'Gudipadava',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "01",
+              festiveName: "Gudipadava",
+              festiveIcon: "mdi-flag"
             },
             {
-              festiveDate: '22',
-              festiveName: 'Gudipadava',
-              festiveIcon: 'mdi-flag',
+              festiveDate: "22",
+              festiveName: "Gudipadava",
+              festiveIcon: "mdi-flag"
+            }
+          ]
+        },
+        {
+          monthName: "June",
+          FestiveLists: [
+            {
+              festiveDate: "",
+              festiveName: "",
+              festiveIcon: ""
+            }
+          ]
+        },
+        {
+          monthName: "July",
+          FestiveLists: [
+            {
+              festiveDate: "",
+              festiveName: "",
+              festiveIcon: ""
+            }
+          ]
+        },
+        {
+          monthName: "August",
+          FestiveLists: [
+            {
+              festiveDate: "03",
+              festiveName: "Raksha Bandhan",
+              festiveIcon: "mdi-flag"
             },
-          ],
+            {
+              festiveDate: "12",
+              festiveName: "Janmashtami",
+              festiveIcon: "mdi-flag"
+            },
+            {
+              festiveDate: "15",
+              festiveName: "Independence Day",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'June',
-          FestiveLists: [{ name: 'check2.1' }, { name: 'check2.2' }],
+          monthName: "September",
+          FestiveLists: [
+            {
+              festiveDate: "01",
+              festiveName: "New Year",
+              festiveIcon: "mdi-flag"
+            },
+            {
+              festiveDate: "14",
+              festiveName: "Makar Sankranti",
+              festiveIcon: "mdi-flag"
+            },
+            {
+              festiveDate: "26",
+              festiveName: "Republic Day",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'July',
-          FestiveLists: [{ name: 'check2.1' }, { name: 'check2.2' }],
+          monthName: "October",
+          FestiveLists: [
+            {
+              festiveDate: "02",
+              festiveName: "Maha Shivratri",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'August',
-          FestiveLists: [{ name: 'check2.1' }, { name: 'check2.2' }],
+          monthName: "November",
+          FestiveLists: [
+            {
+              festiveDate: "01",
+              festiveName: "New Year",
+              festiveIcon: "mdi-flag"
+            },
+            {
+              festiveDate: "14",
+              festiveName: "Makar Sankranti",
+              festiveIcon: "mdi-flag"
+            },
+            {
+              festiveDate: "26",
+              festiveName: "Republic Day",
+              festiveIcon: "mdi-flag"
+            }
+          ]
         },
         {
-          monthName: 'September',
-          FestiveLists: [{ name: 'check2.1' }, { name: 'check2.2' }],
-        },
-        {
-          monthName: 'October',
-          FestiveLists: [{ name: 'check2.1' }, { name: 'check2.2' }],
-        },
-        {
-          monthName: 'November',
-          FestiveLists: [{ name: 'check2.1' }, { name: 'check2.2' }],
-        },
-        {
-          monthName: 'December',
-          FestiveLists: [{ festiveName: 'New Year' }, { name: 'check2.2' }],
-        },
-      ],
+          monthName: "December",
+          FestiveLists: [
+            {
+              festiveDate: "02",
+              festiveName: "Maha Shivratri",
+              festiveIcon: "mdi-flag"
+            }
+          ]
+        }
+      ]
     };
-  },
+  }
 };
 </script>
